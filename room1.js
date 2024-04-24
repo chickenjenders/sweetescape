@@ -14,7 +14,7 @@ function room1Actions(obj) {
     case "door":
       if (player.hasKey) {
         currentRoomIndex = 2; // Switch to room2
-        dialogueText = "You unlocked the door!";
+        dialogueText = "It's unlocked! Now I gotta find the exit.";
         updateDialogueText(dialogueText);
       }
       break;
