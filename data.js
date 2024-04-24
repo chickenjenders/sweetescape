@@ -27,13 +27,6 @@ let rooms = [
     name: "room1",
     objects: [
       {
-        name: "skip",
-        x: 510,
-        y: 65,
-        w: 50,
-        h: 50,
-      },
-      {
         name: "bookshelf",
         x: 50,
         y: 100,
