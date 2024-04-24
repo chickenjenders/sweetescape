@@ -175,37 +175,50 @@ function mouseClicked() {
         if (obj.name === "back") {
           currentRoomIndex = 4;
         } else if (currentRoomIndex === 6) {
-          function keyPad() {
-            // Loop through each button on the keypad
-            for (let i = 0; i < 10; i++) {
-              let button = rooms[6].objects[i]; // Access the button object
-              // Check if the mouse click is within the button's coordinates
-              if (
-                mouseX >= button.x &&
-                mouseX <= button.x + button.w &&
-                mouseY >= button.y &&
-                mouseY <= button.y + button.h
-              ) {
-                // Add the clicked number to the code input
-                currentInput += button.name;
-                // Update the dialogue text to display the input being typed
-                dialogueText = "Code input: " + currentInput;
-                // Check if the code input matches the correct code
-                if (currentInput === correctInput) {
-                  gameCompleted = true;
-                } else {
-                  if (currentInput.length === 4) {
-                    // Four digits entered
-                    dialogueText = "Incorrect code!";
-                    currentInput = ""; // Clear the code input
-                  }
-                  updateDialogueText(dialogueText);
-                }
-                // Exit the loop after processing the click
-                return;
-              }
+         function keyPad() {
+  let checkButton = rooms[6].objects[10]; // Assuming the "check" button is at index 10
+
+  // Loop through each button on the keypad
+  for (let i = 0; i < 10; i++) {
+    let button = rooms[6].objects[i]; // Access the button object
+
+    // Check if the mouse click is within the button's coordinates
+    if (
+      mouseX >= button.x &&
+      mouseX <= button.x + button.w &&
+      mouseY >= button.y &&
+      mouseY <= button.y + button.h
+    ) {
+      // Add the clicked number to the code input
+      currentInput += button.name;
+      // Update the dialogue text to display the input being typed
+      dialogueText = "Code input: " + currentInput;
+      updateDialogueText(dialogueText);
+      return; // Exit the function after processing the click
+    }
+  }
+
+  // Check if the mouse click is within the "check" button's coordinates
+  if (
+    mouseX >= checkButton.x &&
+    mouseX <= checkButton.x + checkButton.w &&
+    mouseY >= checkButton.y &&
+    mouseY <= checkButton.y + checkButton.h
+  ) {
+    // Check if the code input matches the correct code
+    if (currentInput === correctInput) {
+      gameCompleted = true;
+      dialogueText = "Correct code!"; // Update dialogue text accordingly
+    } else if (currentInput.length === 4) {
+      // Incorrect code entered
+      dialogueText = "Incorrect code!";
+      currentInput = ""; // Clear the code input
+    } else {
+      dialogueText = "Enter 4 digits first!"; // Prompt the player to enter 4 digits first
+    }
+    updateDialogueText(dialogueText);
+              return;
             }
-            // Check if the mouse click is within the "check" button's coordinates
           }
           keyPad(obj);
         } else if (obj.name === "?" && currentRoomIndex === 0) {
@@ -218,6 +231,7 @@ function mouseClicked() {
     }
   }
 }
+
 function checkUserInput() {
   // Convert user input to lowercase for case-insensitive comparison
   userInput = userInput.toLowerCase();
