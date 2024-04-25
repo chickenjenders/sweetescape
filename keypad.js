@@ -1,3 +1,15 @@
+function deleteButton (obj) {
+  switch (obj.name) {
+    case "delete":
+      currentInput = "";
+      dialgueText = "";
+       updateDialogueText(dialogueText);
+      break;
+  }
+}
+
+
+
 function keyPad(obj) {
   // Check if the mouse is pressed
   if (mouseIsPressed) {
@@ -34,37 +46,30 @@ function keyPad(obj) {
     ) {
       // Check the code input
       if (obj.name === "back") {
-      currentRoomIndex = 4;
-    }
+        currentRoomIndex = 4;
+      }
       if (codeInput === correctCode) {
         // End the game or perform any other actions
         gameCompleted = true;
-     } else {
-      // Code is incorrect - check if 4 digits have been entered
-      if (codeInput.length === 4) { // Four digits entered
-        dialogueText = "Incorrect code!";
-        codeInput = ""; // Clear the code input
-      }
-      
-        
+      } else {
+        // Code is incorrect - check if 4 digits have been entered
+        if (currentInput === correctInput) {
+          gameCompleted = true;
+          dialogueText = "Correct code!"; // Update dialogue text accordingly
+        }
+        if (obj.name === "delete") {
+          currentInput = "";
+        } else {
+          // Incorrect code entered
+          dialogueText = "Incorrect code!";
+          currentInput = ""; // Clear the code input
+        }
       }
       return;
     }
-    
 
     // Check if the mouse click is within the "delete" button's coordinates
-    let deleteButton = rooms[currentRoomIndex].objects[0].delete;
-    if (
-      mouseX >= deleteButton.x &&
-      mouseX <= deleteButton.x + deleteButton.w &&
-      mouseY >= deleteButton.y &&
-      mouseY <= deleteButton.y + deleteButton.h
-    ) {
-      // Delete the last character from the code input
-      codeInput = codeInput.slice(0, -1);
-      // Update the dialogue text to display the input being typed
-      dialogueText = "Code input: " + codeInput;
-      return;
+    
     }
-  }
+  
 }
