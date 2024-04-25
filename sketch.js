@@ -206,15 +206,13 @@ function mouseClicked() {
     mouseY <= checkButton.y + checkButton.h
   ) {
     // Check if the code input matches the correct code
-    if (currentInput === correctInput) {
+     if (currentInput === correctInput) {
       gameCompleted = true;
       dialogueText = "Correct code!"; // Update dialogue text accordingly
-    } else if (currentInput.length === 4) {
+    } else {
       // Incorrect code entered
       dialogueText = "Incorrect code!";
       currentInput = ""; // Clear the code input
-    } else {
-      dialogueText = "Enter 4 digits first!"; // Prompt the player to enter 4 digits first
     }
     updateDialogueText(dialogueText);
               return;
