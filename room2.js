@@ -13,7 +13,7 @@ function room2Actions(obj) {
     case "painting":
       if (player.hasScissor) {
         player.hasShapeCode = true;
-        dialogueText = "★❤∆";
+        dialogueText = "I used the scissors to cut out the painting. The space behind it showed the symbols '★❤∆'";
         updateDialogueText(dialogueText);
       }
       break;
