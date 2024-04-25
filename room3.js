@@ -32,7 +32,8 @@ function room3Actions(obj) {
         player.hasKey2 = true;
         dialogueText = "I used the shapes from behind the painting to unlock the cabinet. There's a key inside.";
         updateDialogueText(dialogueText);
-      } else if (player.hasHeart && player.hasTriangle && player.hasStar) {
+      } 
+      if (player.hasHeart && player.hasTriangle && player.hasStar) {
         dialgueText = "I have all the shapes, but I don't know the order for the lock.";
         updateDialogueText(dialogueText);
       }
