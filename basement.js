@@ -13,6 +13,7 @@ function secretActions(obj) {
   switch (obj.name) {
     case "Upstairs":
       currentRoomIndex = 2;
+      dialogueText = "Now I should really find my way out of here.";
       break;
       case "Jewels?!":
       player.hasJewels = true;
