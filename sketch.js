@@ -261,7 +261,7 @@ function startGame() {
   setTimeout(() => {
     gameStarted = true;
     dialogueText =
-      "If I can just sell the rest of these cookies, I'll definitely get the most sales and win the bicycle! This is the last house I can visit before my mom picks me up, i have to sell everything no matter what it takes.";
+      "If I can just sell the rest of these cookies, I'll definitely get the most sales and win the bicycle! This is the last house I can visit before my mom picks me up, I have to sell everything no matter what it takes. Hopefully these people like thin mints.";
     updateDialogueText(dialogueText);
   }, 500); // Delay in milliseconds (adjust as needed)
 }
