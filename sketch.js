@@ -251,7 +251,6 @@ function checkUserInput() {
     dialogueText = "Wrong, your taste is questionable. Try again.";
     userInput = ""; // Clear user input for the next attempt
   }
-  userSubmit = false;
   // Update the dialogue text to display the result
   updateDialogueText(dialogueText);
 }
