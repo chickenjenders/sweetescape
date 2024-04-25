@@ -169,13 +169,16 @@ function mouseClicked() {
           room4Actions(obj);
         } else if (currentRoomIndex === 5) {
           secretActions(obj);
+         } else if (currentRoomIndex === 6) {
+          deleteButton(obj);
         } else if (currentRoomIndex === 7) {
           booksActions(obj);
         }
-        if (obj.name === "back") {
+       if (obj.name === "back") {
           currentRoomIndex = 4;
         } else if (currentRoomIndex === 6) {
          function keyPad() {
+           
   let checkButton = rooms[6].objects[10]; // Assuming the "check" button is at index 10
 
   // Loop through each button on the keypad
@@ -191,6 +194,7 @@ function mouseClicked() {
     ) {
       // Add the clicked number to the code input
       currentInput += button.name;
+      
       // Update the dialogue text to display the input being typed
       dialogueText = "Code input: " + currentInput;
       updateDialogueText(dialogueText);
@@ -205,8 +209,10 @@ function mouseClicked() {
     mouseY >= checkButton.y &&
     mouseY <= checkButton.y + checkButton.h
   ) {
+    
+   
     // Check if the code input matches the correct code
-     if (currentInput === correctInput) {
+    if (currentInput === correctInput) {
       gameCompleted = true;
       dialogueText = "Correct code!"; // Update dialogue text accordingly
     } else {
@@ -224,7 +230,7 @@ function mouseClicked() {
           dialogueText =
             "The window was open, is this breaking and entering? Anyway, let's try to find the owners and sell these cookies!";
           updateDialogueText(dialogueText);
-        }
+        } 
       }
     }
   }
